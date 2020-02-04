@@ -1,68 +1,76 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Overview
 
-## Available Scripts
+For this assessment, you will build an app using the following concepts:
 
-In the project directory, you can run:
+- State
+- Event Handlers
+- Fetch
+- Conditional Rendering
+- Component Library
+- For the past couple of assessments, we have been giving you a scaffold project for you to fork and clone, however, you will build this project from scratch using create-react-app.
 
-### `yarn start`
+**See the bottom of the page for the Final Product.**
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Getting Started
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Part 1 - Create a Button with a Basic Event Handler
 
-### `yarn test`
+1. Create an App using create-react-app
+2. Spin up your app and view it in the browser to make sure it works
+3. Clear out the default content of the render() method of the App Component
+4. Render a button element in your App Component
+5. Add a handleToggle function to your App Component
+   1. Add the handleToggle function to your button's click event
+   2. We recommend having the handler console.log() to verify it is hooked up correctly
+      At this point, you should have a simple button that will fire a console.log when clicked.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Part 2 - Get Data from the Github API and Update State
 
-### `yarn build`
+1. Add state to your app with 2 keys: user: {} and active: false
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. In your handleToggle event handler, create a fetch that performs a GET request on this url
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+   1. https://api.github.com/users/a-github-username
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   2. Note: be sure to replace a-github-username with an actual username
 
-### `yarn eject`
+3. Update state with the result of this fetch
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+_At this point, when you click the button it should add the Github information to state. (Use React Dev Tools Chrome Extension to verify)_
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Part 3 - Render Github User Info on the Page
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1.  Use conditional rendering to display the Github user information from state once the button is clicked
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+2.  Specifically Render:
 
-## Learn More
+    1. Your profile image using **avatar_url**
+    2. Your **name**
+    3. At least 2 other pieces of information from the Github user information.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3.  Make sure that when you click your button it toggles between showing the user information and hiding the information.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    1.  hint: this is where state.active could be useful
 
-### Code Splitting
+    _At this point the core functionality of your app should align with the final product video at the bottom of this page. Namely, a button that toggles showing your information on the page._
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### Part 4 - Component Library
 
-### Analyzing the Bundle Size
+You must use a component library. You can use any component library you like, however, it should have components that you can actually use for this assessment. The component libraries below are some great options. They have a component called "Card" that you should highly consider using for this assessment. Also, "Button" component is another good one for this assessment.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+- Semantic-UI-React -- note: make certain that you are always using the react.semantic-ui.com domain. there is a version of semantic ui that uses only class names at semantic-ui.com which is NOT what we want.
+- Material-UI
 
-### Making a Progressive Web App
+### Submission
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+You must submit a deployment url that displays a live running version of your source code. You must also include the url to your repo with your submission.
 
-### Advanced Configuration
+## Happy Hacking!!
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+Example Final Product (this example uses Semantic-UI-React components):
 
-### Deployment
+https://s3.us-east-2.amazonaws.com/files.kenzie.academy/frontend-q2/github-card.mp4
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+### Bonus
 
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- Add a new section to the page that contains a form with an input box. The input box should ask for a Github username. After the user types in a Github username and submits the form, then it should display a card (should look the same as the one created in Part 3) with that users information. The form can be resubmitted anytime with a new username and it should continue to display the card but with the new users information. Note: for this bonus feature, you should try to re-use the jsx you already wrote for the card from Part 3. You can easily re-use this jsx by creating a named component containing that jsx. A possible name could be "GithubCard".
