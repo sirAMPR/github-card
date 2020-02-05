@@ -13,7 +13,7 @@ class App extends Component {
   };
 
   // general method on App
-  handleToggle = event => {
+  handleToggle = () => {
     if (this.state.active === false) {
       fetch(getGithubUserInfo("sirAMPR"))
         .then(response => response.json())
